@@ -77,6 +77,52 @@ foo = "2018-12-01"
 year, month, day = int(foo[:4]), int(foo[5:7]), int(foo[-2:])
 print(year, month, day)
 month += 1
-month = (month ) % 12
+month = month % 12
 print("{:4}-{:02}-{:02}".format(year, month, day))
 print(str(year) + "-" + str(month) + "-" + str(day))
+
+# 6* Calcular si un año es bisiesto
+print()
+print("6* Calcular si un año es bisiesto")
+print("---------------------------------")
+foo = 2018
+print(foo, "NO es un año bisiesto" if foo % 4 else "es un año bisiesto")
+
+# 7* Convierte una cadena DNA en RNA
+print()
+print("7* Convierte una cadena DNA en RNA")
+print("----------------------------------")
+foo = "DNA"
+print("The DNA and " + foo.replace("D", "R") +
+" are responsible for the storage and reading of genetic information")
+
+# 8* Cuanta el numero de veces que se repite una letra
+print()
+print("8* Cuanta el numero de veces que se repite una letra")
+print("----------------------------------------------------")
+foo = "supercaliofragilisticoespialidoso"
+bar = "s"
+print(foo, "tiene", foo.count(bar), "letras", bar)
+
+# 9* Encontrar una palabra dentro de una frase
+print()
+print("9* Encontrar una palabra dentro de una frase")
+print("--------------------------------------------")
+foo = "Joe, peazo invento esto de la Gaseosa"
+bar = "Gaseosa"
+print("La palabra", "\"" + bar + "\"", "esta" if foo.find(bar)!= -1
+else "NO esta", "en la frase:", "\"" + foo + "\"")
+
+# 10* Intenta responder a una pregunta
+print()
+print("10* Intenta responder a una frase")
+print("---------------------------------")
+print("¿Cual es el sentido de la vida, el Universo y todo lo demás?")
+foo = "42"
+
+if int(foo) == 42:
+    print(foo, "realmente ES la respuesta")
+elif int(foo) == 43:
+    print(foo, "realmente casi ES la respuesta")
+else:
+    print(foo, "realmente NO ES casi la respuesta")
