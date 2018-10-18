@@ -95,3 +95,52 @@ def factorial(x):
 
 x = 3
 print("El factorial de", x, "es" ,factorial(x))
+
+
+# Clases
+# Una forma de agrupar variables, funciones y otras clases
+# self es la clase completa, es el primer parametro de la funcion __init__
+# el primer argumento es siempre self, aunque lo llames pepito, siempre se pasa
+# el puntero de la clase como primer argumento
+class Cuadrado:
+
+    def __init__(self):
+        print("iniciando")
+        self.lado = 4
+        self.superficie = None
+
+    def superficie(self):
+        self.superficie = self.lado**2
+        return self.superficie
+
+print()
+cuadrado = Cuadrado()
+cuadrado.lado = 35
+print(cuadrado.lado)
+print(cuadrado.superficie)
+#print(cuadrado.superficie())
+print(cuadrado.superficie)
+
+
+# Ejercicio: clase circulo, radio y superficie
+class Circle:
+
+    def __init__(self):
+        self.radious = 3
+
+    def get_radious(self):
+        return self.radious
+
+    def get_diameter(self):
+        return self.radious * 2
+
+    def get_area(self):
+        return 3.14 * self.radious**2
+
+c1 = Circle()
+print()
+print(c1.get_radious())
+print(c1.get_diameter())
+print(c1.get_area())
+print(Circle.get_area(c1)) # forma de llamar cuando la clase no es implicita
+
