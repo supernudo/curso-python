@@ -97,7 +97,7 @@ x = 3
 print("El factorial de", x, "es" ,factorial(x))
 
 
-# Clases
+# Clases I
 # Una forma de agrupar variables, funciones y otras clases
 # self es la clase completa, es el primer parametro de la funcion __init__
 # el primer argumento es siempre self, aunque lo llames pepito, siempre se pasa
