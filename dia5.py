@@ -138,6 +138,123 @@ print(a + " hola que tal")
 print(a + 1)
 print(1 + a)
 
+# Modulos
+# Ficheros y directorios empaquetados
+# Contienen clases y funciones
+# Python puede ejecutar código cuando importas un modulo
+# El código a ejecutar se mete en el fichero __init__.py
+# En el init se realizan ciertas comprobaciones, las dependencias con el OS
+# (bloqueos, ...)
+# Es más facil buscar un módulo existente que me de la solucion
+# que implementar la solución --> "import easy"
+
+# Importar modulos: 3 formas
+#import OS
+#from OS import path
+#import os.path as osp
+
+# Modulos más utilizados
+# Modulo "re"
+print()
+
+from re import match, search, findall
+texto = "Vamos con afán todos a la vez a buscar con ainco las bolas de dragón"
+if match("Vamos", texto):
+    print("Empieza por 'Vamos'")
+
+if search("afán", texto):
+    print("Contiene 'afán'")
+
+print(findall(" ([a-zA-Z]{3}) ", texto))
+
+# Las expresiones regex son costosas en ejecución porque por debajo se genera
+# el código fuente equivalente
+# Si se va a utilizar una expresión regex muchas veces mejor hacer un compilado
+
+import re
+pattern = re.compile(" ([a-zA-Z]{3}) ")
+if (pattern.search("Vamos con afán")):
+    print("Empieza por 'Vamos con afán'")
+
+# Modulo "time" (pegado al HW)
+# Modulo "datetime" (formato humano)
+
+from time import gmtime, strftime, strptime
+t = gmtime()
+print()
+print(t)
+print(strftime("%a, %d %b %Y %H:%M:%S +0000", t))
+#print(strftime("30 Nov 00", "%d %b %Y"))
+
+# repr() saca un string leible por python (ctr-c, ctrl-v)
+from datetime import datetime
+print(datetime.now())
+#print(datetime.strptime())
+#print(repr())
+
+# Modulo "math"
+# 0.1 x 10 = 0.999999999999999999999999
+# Esto es por el formato que utiliza para optimizar en velocidad de los float
+# se da la precisión máxima del sistema 0.99999999 para un PC es lo mismo que
+# 1.0
+
+from math import fsum, exp, log, tan, atan
+print(log(exp(2.53)))
+
+# No da exacto por que hay muchas operaciones intermedias que acumulan error
+print(tan(atan(1.71)))
+
+# Modulo "intertools"
+# Creación, manipulación y combinación de iteradores
+# El generador es un iterador
+
+from itertools import chain, product
+print(list(chain("ABC", "DEFG")))
+print(list(product("123", "ABC"))) # Saca todas las combinaciones posibles
+
+# Modulo functools
+# Sirve para manejar funciones, funciones que operan sobre funciones - decoradores
+
+# Patron de diseño memorize
+# Funcion que tarda mucho en devolver y la llamo aleatoriamente, varias veces
+# Memoriza los resultados anteriores
+# Ejemplo: pagina web cacheada
+
+#from functools import lru_cache, partial
+#@lru_cache(maxsize=1024)
+
+# Inciso sobre decoradores
+# Son envoltorios de funciones
+# No utlizar para valores random o funciones que pueden retornan diferetes
+# valores para mismos parametros de entrada
+# Ejemplo: get_time() devolveria simpre lo de la primera llamada
+
+def decorador(f):
+    def wrap():
+        print("Modificado")
+        f()
+    return wrap
+
+@decorador
+def f():
+    print("....")
+
+print()
+f()
+
+# Es equivalente
+print()
+def f():
+    print("....")
+
+new_f = decorador(f)
+new_f()
+
+
+
+
+
+
 
 
 
