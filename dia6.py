@@ -47,8 +47,12 @@ sql_command = """INSERT INTO employee (staff_number, fname, lname, gender,
 birth_date) VALUES (NULL, "Frank", "Schiller", "m", "1955-08-17");"""
 cursor.execute(sql_command)
 
-for i in range(10):
-    cursor.execute(sql_command.replace("Frank", "Frank " + str(i)))
+nombres = ["""Aitor""", """Armando""", """Vicente""", """Paloma"""]
+apellidos = ["""Tilla""", """Ruido""", """Nis de tierra batida""", """Riposa"""]
+for nombre, apellido in zip(nombres, apellidos):
+    __sql_command = sql_command.replace("Frank", nombre)
+    __sql_command = __sql_command.replace("Schiller", apellido)
+    cursor.execute(__sql_command)
 
 connection.commit()
 connection.close()
@@ -76,4 +80,28 @@ for r in result:
 cursor.execute("""DROP TABLE employee""")
 print()
 print(result)
+
+
+# MongoDB
+# pip install mongoengie
+# Para documentos, reconoce .docx
+
+# Programación asíncrona y concurrente
+
+"""
+Los hilos en Python son en realidad bucles de eventos. Los procesos
+solo se ejecutan en un procesador.
+
+Asincrona (desde los primeros Python):
+    - Bucle de eventos: scheduler con prioridad a tiempo de ejecucion
+    - Futuros: evento terminado o estimación de tiempo restante
+
+Concurrente (a partir de Pytho 3.x):
+    - Hilos: --> P. Asincrona, en realidad es bucle de eventos.
+    - Procesos: no memoria compartida real, utiliza servidores para compartir
+                variables
+
+    NOTA: Liberia redis: la mejor para compartir memoria entre varios procesos
+"""
+
 
