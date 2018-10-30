@@ -22,7 +22,7 @@ async def fetch_all (session, urls):
 async def search_in_urls(urls, regexs):
     async with aiohttp.ClientSession() as session:
         htmls = await fetch_all(session, urls)
-        return [re.findall(regex, html, re.DOTALL) for regex in regexs for html in htmls]
+        return [re.findall(regex, html) for regex in regexs for html in htmls]
 
 async def main():
     urls = ['https://avesexoticas.org'] #, 'https://cnn.com', 'https://google.com']
