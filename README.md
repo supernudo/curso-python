@@ -27,3 +27,6 @@ https://github.com/supernudo/curso-python/blob/master/doc/curso_python.pdf
 
 	https://www.w3resource.com/python-exercises/
 
+
+	
+
